@@ -1,4 +1,5 @@
 import React from 'react'
+import Constant from '../_utils/Constant'
 
 function Hero() {
   return (
@@ -15,8 +16,7 @@ function Hero() {
       </h1>
 
       <p className="mx-auto mt-4 max-w-xl sm:text-xl/relaxed">
-       Drag and frop your file directly on our cloud
-       and share it with your friends and family securely with password and send it an email
+       {Constant.desc}
       </p>
 
       <div className="mt-8 flex flex-wrap justify-center gap-4">
