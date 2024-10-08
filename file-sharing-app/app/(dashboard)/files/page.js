@@ -2,7 +2,8 @@ import React from 'react'
 import {  UserButton} from '@clerk/nextjs'
 
 function Files() {
-  return (
+  return ( 
+    // user button for signing out
     <div>Files  
       <UserButton afterSignOutUrl="/"/>
     </div>
