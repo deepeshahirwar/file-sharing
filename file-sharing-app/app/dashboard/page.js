@@ -1,5 +1,5 @@
 import React from 'react' 
-import Layout from '../_components/Layout'
+
 
 function Dashboard() {
   return (
