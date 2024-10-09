@@ -10,7 +10,7 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/
 import { app } from '@/filrebaseConfig';
 import { generateRandomString } from '@/app/_utils/RandomString'
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react/cjs/react.production.min';
+import { useEffect } from 'react';
 function Files({uploadBtnClickHandler}) {   
    const [progress, setProgress] = useState(0); 
    const router = useRouter(); 
