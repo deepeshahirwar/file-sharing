@@ -9,9 +9,11 @@ import { useUser } from '@clerk/nextjs';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { app } from '@/filrebaseConfig';
 import { generateRandomString } from '@/app/_utils/RandomString'
-
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react/cjs/react.production.min';
 function Files({uploadBtnClickHandler}) {   
    const [progress, setProgress] = useState(0); 
+   const router = useRouter(); 
    const {user} = useUser();
 
   //  for file uploading and geting downloadURL of the url
@@ -51,7 +53,11 @@ function Files({uploadBtnClickHandler}) {
       //     shortUrl: process.env.NEXT_PUBLIC_BASE_URL + docId,
       //   });
       // };
-
+ 
+      // for file-preview  section 
+      useEffect(() => {
+        
+      },2000)
 
    }
   return ( 
