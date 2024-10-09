@@ -1,5 +1,6 @@
  "use client"
- import React from 'react'
+ import React from 'react' 
+ import { useState } from 'react'
 import {  SignIn, UserButton} from '@clerk/nextjs'
 import { Upload } from 'lucide-react'
 import UploadForm from '../upload/_components/UploadForm';
@@ -9,6 +10,8 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/
 import { app } from '@/filrebaseConfig';
 
 function Files({uploadBtnClickHandler}) {   
+   const [progress, setProgress] = useState(0);
+
   //  for file uploading and geting downloadURL of the url
   const storage = getStorage(app);
    const uploadFile = (file) => {
@@ -22,7 +25,8 @@ function Files({uploadBtnClickHandler}) {
     uploadTask.on('state_changed', 
       (snapshot) => {
         const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        console.log('Upload is ' + progress + '% done');
+        console.log('Upload is ' + progress + '% done'); 
+        setProgress(progress);
         progress == 100 &&  getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           console.log('File available at', downloadURL);
         });
@@ -40,7 +44,8 @@ function Files({uploadBtnClickHandler}) {
         it
         </h1>
       <UploadForm 
-       uploadBtnClickHandler={(file) => uploadFile(file)}/>
+       uploadBtnClickHandler={(file) => uploadFile(file)}
+        progress={progress}/>
      
     </div>
   )
