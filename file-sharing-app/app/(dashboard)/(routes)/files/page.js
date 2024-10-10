@@ -9,6 +9,9 @@ import { app } from '@/filrebaseConfig';
 import { generateRandomString } from '@/app/_utils/RandomString';
 import { useRouter } from 'next/navigation';
 import CompleteCheck from '../completeCheck/page';
+import { ArrowLeftSquare } from 'lucide-react';
+import Link from 'next/link';
+
 
 function Files() {   // Removed unnecessary `uploadBtnClickHandler` from props
    const [progress, setProgress] = useState(0); 
@@ -76,7 +79,15 @@ function Files() {   // Removed unnecessary `uploadBtnClickHandler` from props
       }
    }, [uploadCompleted, fileId]);  // *** Updated: Proper dependency array
 
-   return (
+   return ( 
+    <div>
+      <Link href="/" 
+      className="text-primary
+      flex items-center gap-3 hover:text-blue-700"
+      >
+        <ArrowLeftSquare/>
+      Go To Home</Link>
+    
       <div className="p-5 px-8 md:px-28 text-center"> 
          {!uploadCompleted ? (  // Show upload form if upload isn't complete
             <div>
@@ -93,7 +104,8 @@ function Files() {   // Removed unnecessary `uploadBtnClickHandler` from props
          ) : (
             <CompleteCheck />  // Show completion component when upload is done
          )}
-      </div>
+      </div> 
+       </div>
    );
 }
 
