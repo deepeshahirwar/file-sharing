@@ -16,12 +16,6 @@ function FileShareForm({file,onPasswordSave}) {
   };  
 
   
-
-
-
-
-
-
   return (
      
         <div className="grid  gap-3"> 

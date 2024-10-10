@@ -1,7 +1,7 @@
- "use client"
- import { Shield, Upload, File } from 'lucide-react'
-import React from 'react'
-import { useState } from 'react'
+"use client";
+import { Shield, Upload, File } from 'lucide-react';
+import React, { useState } from 'react';
+import Link from 'next/link'; // Import Next.js Link component
 
 function SideNav() {
     const menuList = [
@@ -9,14 +9,13 @@ function SideNav() {
             id: 1,
             name: "Upload",
             icon: Upload,
-            path: "/upload"
-        }
-        ,
+            path: "/files"
+        },
         {
             id: 2,
             name: "Files",
             icon: File,
-            path: "/files"
+            path: "/upload"
         },
         {
             id: 3,
@@ -24,9 +23,8 @@ function SideNav() {
             icon: Shield,
             path: "/upgrade"
         }
+    ];
 
-    ]
- 
     const [active, setActive] = useState(0);
 
     return (
@@ -35,24 +33,23 @@ function SideNav() {
                 Logo
             </div>  
 
-        <div className="flex flex-col text-left">
-          {menuList.map((item,index) => (
-
-             <button className={`flex gap-2 p-4 px-6 
-             hover:text-primary
-             ${index === active ? "bg-blue-50 text-primary" :null}`}
-
-
-             onClick={() => setActive(index)}>
-                <item.icon/>
-             <h2>{item.name}</h2>
-             </button>
-          ))}
-          </div>
-
-
-         </div>
-    )
+            <div className="flex flex-col text-left">
+                {menuList.map((item, index) => (
+                    <Link href={item.path} key={item.id}>
+                        <button 
+                            className={`flex gap-2 p-4 px-6 
+                            hover:text-primary
+                            ${index === active ? "bg-blue-50 text-primary" : null}`}
+                            onClick={() => setActive(index)}
+                        >
+                            <item.icon />
+                            <h2>{item.name}</h2>
+                        </button>
+                    </Link>
+                ))}
+            </div>
+        </div>
+    );
 }
 
-export default SideNav
+export default SideNav;
