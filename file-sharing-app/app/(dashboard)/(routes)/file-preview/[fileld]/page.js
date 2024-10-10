@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import { useEffect , useState} from 'react' 
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, updateDoc } from "firebase/firestore";
 import { app } from '@/filrebaseConfig'; 
 import { doc, getDoc } from "firebase/firestore";
 import FileInfo from './_components/FileInfo';
@@ -27,6 +27,14 @@ function FilePreview({params}) {
         // doc.data() will be undefined in this case
         console.log("No such document!");
     }
+} 
+
+const onPasswordSave = async(password) => { 
+  const docRef = doc(db, "uploadedFile", params?.fileld);
+   await updateDoc(docRef, {
+     password: password
+   })
+  console.log(password)
 }
 
   return ( 
@@ -44,7 +52,9 @@ function FilePreview({params}) {
     items-center  mt-16
     md:grid-cols-2"> 
       <FileInfo fileInfo={fileInfo}/> 
-      <FileShareForm fileInfo={fileInfo} />
+      <FileShareForm fileInfo={fileInfo}
+      onPasswordSave={(password)=>onPasswordSave(password) }
+      />
     </div> 
     </div>
   )
