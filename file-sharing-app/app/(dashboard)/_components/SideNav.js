@@ -9,13 +9,13 @@ function SideNav() {
             id: 1,
             name: "Upload",
             icon: Upload,
-            path: "/files"
+            path: "/upload"
         },
         {
             id: 2,
             name: "Files",
             icon: File,
-            path: "/upload"
+            path: "/files"
         },
         {
             id: 3,
