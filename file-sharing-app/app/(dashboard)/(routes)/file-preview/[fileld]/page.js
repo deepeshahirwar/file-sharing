@@ -2,7 +2,7 @@
 import React from 'react'
 import { useEffect , useState} from 'react' 
 import { getFirestore, updateDoc } from "firebase/firestore";
-import { app } from '@/filrebaseConfig'; 
+import app from "./../../../../_utils/filrebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
 import FileInfo from './_components/FileInfo';
 import FileShareForm from './_components/FileShareForm';
@@ -22,20 +22,24 @@ function FilePreview({params}) {
     const docSnap = await getDoc(docRef);
     if(docSnap.exists()) {
         console.log("Document data:", docSnap.data()); 
-        setFileInfo(docSnap.data())
+        setFileInfo(docSnap.data()) 
+        
     } else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
     }
-} 
+}  
 
+
+// onPasswordSave for updating password
 const onPasswordSave = async(password) => { 
   const docRef = doc(db, "uploadedFile", params?.fileld);
    await updateDoc(docRef, {
-     password: password
+     password: password,
    })
   console.log(password)
-}
+} 
+
 
   return ( 
     <div className="p-5">  
@@ -54,6 +58,7 @@ const onPasswordSave = async(password) => {
       <FileInfo fileInfo={fileInfo}/> 
       <FileShareForm fileInfo={fileInfo}
       onPasswordSave={(password)=>onPasswordSave(password) }
+     
       />
     </div> 
     </div>
