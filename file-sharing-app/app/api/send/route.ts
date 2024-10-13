@@ -1,4 +1,5 @@
-import { EmailTemplate } from './../../_components/email-template';
+ "use server";
+ import { EmailTemplate } from './../../_components/email-template';
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
@@ -10,11 +11,11 @@ export async function POST(request: Request, res:Response) {
     const response = await request.json();
     
     // Ensure that the required data is present
-    if (!response?.emailToSend || !response?.userName) {
-      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
-    }
+    // if (!response?.emailToSend || !response?.userName) {
+    //   return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+    // }
 
-    // Send the email using Resend
+    // Send the email using Resend [response.emailToSend]
     const data = await resend.emails.send({
       from: 'deepesh7024@resend.dev',
       to: [response.emailToSend],

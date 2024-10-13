@@ -98,7 +98,7 @@ import React from "react";
 export const EmailTemplate = ({ response }) => {
   return (
     <div>
-      <h1>File Shared with You</h1>
+      <h1>Hi, {response?.emailToSend.split("@")[0]}</h1>
       <p>{response?.userName} has shared a file with you. Click the link below to access it:</p>  
 
       <div className="flex flex-col gap-2 mt-2 mb-2">  
@@ -109,7 +109,7 @@ export const EmailTemplate = ({ response }) => {
       <p>File URL: {response?.shortUrl}</p> 
       </div>
 
-      <a href={response?.shortUrl} className="text-blue-500 text-bold underline text-center text-2xl">
+      <a href='google.com' className="text-blue-500 text-bold underline text-center text-2xl">
         Download File</a>
     </div>
   );
