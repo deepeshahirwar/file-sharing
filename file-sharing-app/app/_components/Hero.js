@@ -1,14 +1,17 @@
 import React from 'react'
 import Constant from '../_utils/Constant'
+import Image from "next/image";
+
+import {assets} from '../public/index.js';
 
 function Hero() {
   return (
     <div> 
      <section className="bg-gray-900 text-white">
-  <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
-    <div className="mx-auto max-w-3xl text-center">
+  <div className='mx-auto max-w-screen-xl px-4 py-32 grid grid-cols-1 lg:grid-cols-2 lg:h-screen lg:items-center'>
+    <div className="mx-auto max-w-[40rem] text-center">
       <h1
-        className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl"
+        className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-2xl font-extrabold text-transparent sm:text-5xl"
       >
         Upload, Save and easily
 
@@ -35,6 +38,18 @@ function Hero() {
         </a>
       </div>
     </div>
+
+    {/* <div className="relative mt-12 lg:items-center lg:gap-8"> */}
+    <div className='relative mx-auto mt-12 lg:mt-0 grid grid-cols-1'>
+      <Image 
+        src={assets.homeRight}
+        alt=""
+        width={500} 
+        height={300} 
+        priority
+      />
+    </div>
+
   </div>
 </section>
 
