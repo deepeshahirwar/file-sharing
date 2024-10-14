@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Copy, Eye, EyeOff, CheckCircle } from 'lucide-react'; 
 import GlobalApi from './../../../../../_utils/GlobalApi'; 
 import { useUser } from '@clerk/nextjs';
-
+import { toast } from 'sonner';
 function FileShareForm({ file, onPasswordSave }) {
   const [passwordVisible, setPasswordVisible] = useState(false); // State to toggle password visibility
   const [password, setPassword] = useState(''); // State to store password input 
@@ -20,7 +20,8 @@ function FileShareForm({ file, onPasswordSave }) {
   const sendEmail = () => {
     // Validate email before proceeding
     if (!email || !validateEmail(email)) {
-      console.error("Invalid email address");
+      console.error("Invalid email address"); 
+      toast.error('Invalid email address.', { className: 'sonner-toast sonner-toast-error' });
       return;
     }
 
@@ -38,9 +39,11 @@ function FileShareForm({ file, onPasswordSave }) {
     GlobalApi.SendEmail(data)
       .then((res) => {
         console.log("Email sent successfully:", res);
+        toast.success('Email sent successfully!', { className: 'sonner-toast sonner-toast-success' });
       })
       .catch((error) => {
         console.error("Error sending email:", error);  // Catch any errors from the request
+        toast.error('Error sending email.', { className: 'sonner-toast sonner-toast-error' });
       });
   };
 

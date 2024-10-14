@@ -3,7 +3,8 @@ import { useState } from 'react'
 import React from 'react'
 import AlertMsg from './AlertMsg'; 
 import FilePreview from './FilePreview';
-import ProgressBar from './ProgressBar';
+import ProgressBar from './ProgressBar'; 
+import  {toast} from 'sonner';
 
 function UploadForm({uploadBtnClickHandler,progress}) { 
     const [file, setFile] = useState();  
@@ -14,13 +15,14 @@ function UploadForm({uploadBtnClickHandler,progress}) {
       if(file && file.size > 2000000) {
         
         setErrorMsg("File is too big! Max Size : 2MB");
-        console.log("File is too big!");
+        console.log("File is too big!"); 
+        toast.error('File is too big! Max Size : 2MB', { className: 'sonner-toast sonner-toast-error' });
         
         return;  
       }
       setFile(file); 
       setErrorMsg(null);
-      
+       toast.success('File selected!', { className: 'sonner-toast sonner-toast-success' });
     };
 
   
@@ -65,7 +67,7 @@ function UploadForm({uploadBtnClickHandler,progress}) {
 
  {/* for Alert message */}
        
-    { errorMsg? <AlertMsg msg={errorMsg} /> : null}
+    { errorMsg? <AlertMsg msg={errorMsg} />  : null}
      
     {file?<FilePreview file={file}
      removeFile={()=>setFile(null)}/>:null}
