@@ -1,28 +1,35 @@
 "use client";
-import { Shield, Upload, File } from 'lucide-react';
+import { Shield, Upload, File,User } from 'lucide-react';
 import React, { useState } from 'react';
 import Link from 'next/link'; // Import Next.js Link component
 
 function SideNav() {
-    const menuList = [
+    const menuList = [ 
         {
             id: 1,
-            name: "Upload",
-            icon: Upload,
-            path: "/files"
+            name: "UserDashboard",
+            icon: User,
+            path: "/userDashboard"
         },
         {
             id: 2,
-            name: "Files",
-            icon: File,
+            name: "Upload",
+            icon: Upload,
             path: "/upload"
         },
         {
             id: 3,
+            name: "Files",
+            icon: File,
+            path: "/files"
+        },
+        {
+            id: 4,
             name: "Upgrade",
             icon: Shield,
             path: "/upgrade"
-        }
+        },
+       
     ];
 
     const [active, setActive] = useState(0);
