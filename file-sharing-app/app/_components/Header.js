@@ -39,27 +39,27 @@ function Header() {
             <nav aria-label="Global" className="hidden md:block">
               <ul className="flex items-center gap-6 text-sm">
                 <li>
-                  <a className="text-gray-500 transition hover:text-gray-500/75" href="#">
+                  <a className="text-gray-500 transition hover:text-[#FF8906]/75" href="#">
                     Home
                   </a>
                 </li>
                 <li>
-                  <a className="text-gray-500 transition hover:text-gray-500/75" href="#">
+                  <a className="text-gray-500 transition hover:text-[#FF8906]/75" href="#">
                     Features
                   </a>
                 </li>
                 <li>
-                  <a className="text-gray-500 transition hover:text-gray-500/75" href="#">
+                  <a className="text-gray-500 transition hover:text-[#FF8906]/75" href="#">
                   Pricing
                   </a>
                 </li>
                 <li>
-                  <a className="text-gray-500 transition hover:text-gray-500/75" href="#">
+                  <a className="text-gray-500 transition hover:text-[#FF8906]/75" href="#">
                     About Us
                   </a>
                 </li>
                 <li>
-                  <a className="text-gray-500 transition hover:text-gray-500/75" href="#contact-us">
+                  <a className="text-gray-500 transition hover:text-[#FF8906]/75" href="#contact-us">
                     Contact Us
                   </a>
                 </li>
@@ -69,7 +69,7 @@ function Header() {
             <div className="flex items-center gap-4">
               <div className="sm:flex sm:gap-4">
                 <a
-                  className="block rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-white transition hover:bg-blue-700"
+                  className="block rounded-md bg-[#FF8906] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#FF8906]/75"
                   href="files"
                 >
                   Register Now
@@ -101,27 +101,27 @@ function Header() {
           <nav aria-label="Mobile" className="md:hidden px-4 pt-2 pb-4 bg-gray-100">
             <ul className="flex flex-col gap-2 text-sm">
               <li>
-                <a className="text-gray-600 transition hover:text-gray-500" href="#">
+                <a className="text-gray-600 transition hover:text-[#FF8906]/75" href="#">
                   Home
                 </a>
               </li>
               <li>
-                <a className="text-gray-600 transition hover:text-gray-500" href="#">
+                <a className="text-gray-600 transition hover:text-[#FF8906]/75" href="#">
                   Features
                 </a>
               </li>
               <li>
-                <a className="text-gray-600 transition hover:text-gray-500" href="#">
+                <a className="text-gray-600 transition hover:text-[#FF8906]/75" href="#">
                 Pricing
                 </a>
               </li>
               <li>
-                <a className="text-gray-600 transition hover:text-gray-500" href="#">
+                <a className="text-gray-600 transition hover:text-[#FF8906]/75" href="#">
                   About Us
                 </a>
               </li>
               <li>
-                <a className="text-gray-600 transition hover:text-gray-500" href="#contact-us">
+                <a className="text-gray-600 transition hover:text-[#FF8906]/75" href="#contact-us">
                   Contact Us
                 </a>
               </li>
