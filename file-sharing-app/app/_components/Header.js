@@ -13,7 +13,7 @@ function Header() {
   };
 
   return (
-    <div className="scroll-smooth">
+    <div id='home' className="scroll-smooth">
       {/* Navbar start from here */}
       <header className="bg-[#F5F7FA]">
         <div className="mx-auto max-w-screen-xl flex h-18 py-2 items-center gap-16 px-6 sm:px-6 border-b">
@@ -47,12 +47,12 @@ function Header() {
             <nav aria-label="Global" className="hidden md:block">
               <ul className="flex items-center gap-6 text-sm">
                 <li>
-                  <a className="text-gray-500 transition hover:text-blue-600" href="#">
+                  <a className="text-gray-500 transition hover:text-blue-600" href="#home">
                     Home
                   </a>
                 </li>
                 <li>
-                  <a className="text-gray-500 transition hover:text-blue-600" href="#">
+                  <a className="text-gray-500 transition hover:text-blue-600" href="#features">
                     Features
                   </a>
                 </li>

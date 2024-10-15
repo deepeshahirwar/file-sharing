@@ -2,9 +2,9 @@ import React from "react";
 
 function Contact() {
     return (
-        <>
-         <section id="contact-us" className="bg-gray-100 scroll-smooth">
-  <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+        <div id="contact-us" className="scroll-smooth">
+         <section className="bg-gray-100">
+  <div className="mx-auto max-w-screen-xl lg:h-screen px-4 py-16 sm:px-6 lg:px-8">
     <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
       <div className="lg:col-span-2 lg:py-12">
         <p className="max-w-xl text-lg">
@@ -119,7 +119,7 @@ function Contact() {
     </div>
   </div>
          </section>
-        </>
+        </div>
     );
 }
 
