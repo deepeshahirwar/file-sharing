@@ -5,6 +5,7 @@ import Footer from "./_components/Footer";
 import Contact from "./_components/Contact";
 import Features from "./_components/Feature";
 import Pricing from "./_components/Pricing";
+import About_us from "./_components/About-us";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Hero/>
       <Features/>
       <Pricing/>
+      <About_us/>
       <Contact/>
       <Footer/>
     </div>
