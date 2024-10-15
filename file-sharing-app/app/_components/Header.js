@@ -57,7 +57,7 @@ function Header() {
                   </a>
                 </li>
                 <li>
-                  <a className="text-gray-500 transition hover:text-blue-600" href="#">
+                  <a className="text-gray-500 transition hover:text-blue-600" href="#pricing">
                   Pricing
                   </a>
                 </li>

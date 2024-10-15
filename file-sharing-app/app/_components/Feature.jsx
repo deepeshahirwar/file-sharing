@@ -78,7 +78,7 @@ function Feature () {
                     Creative Professionals
                 </h2>
 
-                <p className='text-gray-700 text-center font-bold py-4'
+                <p className='text-gray-700 text-center font-bold py-4 mt-8'
                 >
                     Whether you're a designer or any other creative 
                     professional, our platform ensures easy file sharing with clients, 
