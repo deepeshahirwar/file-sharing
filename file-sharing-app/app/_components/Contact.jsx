@@ -2,104 +2,81 @@ import React from "react";
 
 function Contact() {
     return (
-        <div id="contact-us" className="scroll-smooth">
-         <section className="bg-gray-100">
-  <div className="mx-auto max-w-screen-xl lg:h-screen px-4 py-16 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
-      <div className="lg:col-span-2 lg:py-12">
-        <p className="max-w-xl text-lg">
-          At the same time, our commitment to being fully independent and free 
-          from any third-party influence ensures that we always provide advice and 
-          services tailored specifically to your needs. You can trust that our 
-          recommendations are made with your best interests in mind, with no 
-          external pressures or biases. <br></br> <br></br>
-          For any inquiries or assistance, please don’t hesitate to get in touch:
-        </p>
+    <div id="contact-us" className="scroll-smooth bg-gray-900">
+       <div className="mx-auto max-w-screen-xl lg:h-screen px-6 py-16
+        grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-16">
+        
+        <div className="text-center lg:text-left">
+            <h1 className='mx-auto text-2xl sm:text-5xl font-extrabold text-white lg:text-left'>
+              Get in touch
+            </h1>
 
-        <div className="mt-8">
-          <a href="#" className="text-2xl font-bold text-pink-600"> 0151 475 4450 </a>
+            <p className="mx-auto mt-20 text-lg text-gray-300">
+              We're ready to lead you into the future of voice performance.
+            </p>
 
-          <address className="mt-2 not-italic">282 Kevin Brook, Imogeneborough, CA 58517</address>
+            <p className="mt-4">
+              <a 
+              className="text-blue-600 hover:text-blue-700 text-lg font-bold"
+              href="#"
+              >
+              Get help on the web <br/>
+              Submit a request
+              </a>
+            </p>
+
+            <div className="mt-20 flex flex-col gap-2">
+              <div className="flex flex-col mt-6 flex gap-4">
+                <h2 className="font-black text-lg lg:text-xl text-blue-600">United States Headquarters</h2>
+
+                <p className="text-gray-300 text-lg"> 
+                701 5th Ave <br/>
+                Suite 1200  <br/>
+                Seattle WA 98104  <br/>
+                (425) 835-3673  <br/>
+                </p>
+              </div>
+            </div>
         </div>
-      </div>
 
-      <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
-        <form action="#" className="space-y-4">
+
+        <div className="rounded-lg bg-white p-10 shadow-lg">
+         <form action="#" className="space-y-6">
           <div>
             <label className="sr-only" htmlFor="name">Name</label>
             <input
-              className="w-full rounded-lg border-gray-200 p-3 text-sm"
+              className="w-full rounded-lg border border-gray-300 p-3 text-sm"
               placeholder="Name"
               type="text"
               id="name"
             />
           </div>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <div>
-              <label className="sr-only" htmlFor="email">Email</label>
+          <div>
+            <label className="sr-only" htmlFor="email">Email</label>
               <input
-                className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                className="w-full rounded-lg border border-gray-300 p-3 text-sm"
                 placeholder="Email address"
                 type="email"
                 id="email"
               />
-            </div>
+          </div>
 
-            <div>
-              <label className="sr-only" htmlFor="phone">Phone</label>
+          <div>
+            <label className="sr-only" htmlFor="phone">Phone</label>
               <input
-                className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                className="w-full rounded-lg border border-gray-300 p-3 text-sm"
                 placeholder="Phone Number"
                 type="tel"
                 id="phone"
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-3">
-            <div>
-              <label
-                htmlFor="Option1"
-                className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
-                tabIndex="0"
-              >
-                <input className="sr-only" id="Option1" type="radio" tabIndex="-1" name="option" />
-
-                <span className="text-sm"> Option 1 </span>
-              </label>
-            </div>
-
-            <div>
-              <label
-                htmlFor="Option2"
-                className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
-                tabIndex="0"
-              >
-                <input className="sr-only" id="Option2" type="radio" tabIndex="-1" name="option" />
-
-                <span className="text-sm"> Option 2 </span>
-              </label>
-            </div>
-
-            <div>
-              <label
-                htmlFor="Option3"
-                className="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
-                tabIndex="0"
-              >
-                <input className="sr-only" id="Option3" type="radio" tabIndex="-1" name="option" />
-
-                <span className="text-sm"> Option 3 </span>
-              </label>
-            </div>
+            />
           </div>
 
           <div>
             <label className="sr-only" htmlFor="message">Message</label>
 
             <textarea
-              className="w-full rounded-lg border-gray-200 p-3 text-sm"
+              className="w-full rounded-lg border border-gray-200 p-3 text-sm"
               placeholder="Message"
               rows="8"
               id="message"
@@ -109,17 +86,16 @@ function Contact() {
           <div className="mt-4">
             <button
               type="submit"
-              className="inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto"
+              className="inline-block w-full rounded-lg bg-black mt-6 px-5 py-3 font-medium text-white sm:w-auto hover:bg-gray-900"
             >
               Send Enquiry
             </button>
           </div>
         </form>
-      </div>
-    </div>
-  </div>
-         </section>
         </div>
+
+       </div>
+    </div>
     );
 }
 
