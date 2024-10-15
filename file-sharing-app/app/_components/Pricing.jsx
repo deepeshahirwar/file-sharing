@@ -6,7 +6,7 @@ function Pricing() {
 
   return (
     <div id='pricing' className='bg-gray-900 scroll-smooth'>
-      <div className='mx-auto max-w-screen-xl lg:h-screen px-1 md:px-4 lg:px-4 pb-12'>
+      <div className='mx-auto max-w-screen-xl lg:h-screen px-1 md:px-4 lg:px-4 pb-16'>
         <div className='pt-16 pb-16'>
           <h1 className='mx-auto text-2xl sm:text-4xl font-extrabold text-white text-center'>
             Choose Your Plan

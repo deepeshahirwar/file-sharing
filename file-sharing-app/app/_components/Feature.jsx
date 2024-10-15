@@ -6,7 +6,7 @@ import {assets} from '../public/index.js';
 function Feature () {
     return (
     <div id='features' className='scroll-smooth'>
-       <div className='mx-auto max-w-screen-xl lg:h-screen bg-white px-4'>
+       <div className='mx-auto max-w-screen-xl lg:h-screen bg-white px-4 pb-8'>
           <div className='pt-16 pb-24'>
             <h1 className='mx-auto text-2xl sm:text-4xl font-black text-gray-900 text-center'
             >

@@ -10,7 +10,7 @@ function Footer() {
   <div className="mx-auto max-w-screen-xl px-4 pb-6 pt-16 sm:px-6 lg:px-8 lg:pt-24">
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
       <div>
-        <div className="flex gap-x-2 justify-center text-teal-600 sm:justify-start">
+        <div className="flex gap-x-2 justify-center text-teal-600 sm:justify-start cursor-pointer">
           <Image
                 src={assets.logo}
                 alt=""
@@ -273,7 +273,7 @@ function Footer() {
           <span className="block sm:inline">All rights reserved.</span>
 
           <a
-            className="inline-block text-teal-600 underline transition hover:text-teal-600/75"
+            className="inline-block text-blue-600 transition hover:text-blue-600/75"
             href="#"
           >
             Terms & Conditions
@@ -282,7 +282,7 @@ function Footer() {
           <span>&middot;</span>
 
           <a
-            className="inline-block text-teal-600 underline transition hover:text-teal-600/75"
+            className="inline-block text-blue-600 transition hover:text-blue-600/75"
             href="#"
           >
             Privacy Policy
