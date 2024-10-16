@@ -21,7 +21,7 @@ function Footer() {
           <span className="text-blue-600 text-3xl font-extrabold my-auto">QuikSend</span>
         </div>
 
-        <p className="mt-6 max-w-md text-center leading-relaxed text-gray-500 sm:max-w-xs sm:text-left">
+        <p className="mt-6 max-w-fit pl-8 sm:pl-0 md:pl-0 lg:pl-0 text-center leading-relaxed text-gray-500 sm:max-w-xs sm:text-left">
            Secure, simple, and reliable file sharing. Stay organized with QuikSend.
         </p>
 
@@ -186,15 +186,15 @@ function Footer() {
         <div className="text-center sm:text-left">
           <p className="text-lg font-medium text-gray-900">Contact Us</p>
 
-          <ul className="mt-8 space-y-4 text-sm">
-            <li>
+          <ul className="flex flex-col items-center sm:items-start gap-1 mt-8 space-y-4 text-sm">
+            <li className='flex justify-start'>
               <a
-                className="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
+                className="flex gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
                 href="#"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="size-5 shrink-0 text-gray-900"
+                  className="size-5 shrink-0 text-gray-900" 
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -207,13 +207,13 @@ function Footer() {
                   />
                 </svg>
 
-                <span className="flex-1 text-gray-700">helpsupport@quiksend.com</span>
+                <span className="text-gray-700">helpsupport@quiksend.com</span>
               </a>
             </li>
 
-            <li>
+            <li className='flex justify-start'>
               <a
-                className="flex items-center justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
+                className="flex gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
                 href="#"
               >
                 <svg
@@ -231,12 +231,12 @@ function Footer() {
                   />
                 </svg>
 
-                <span className="flex-1 text-gray-700">0123456789</span>
+                <span className="text-gray-700">0123456789</span>
               </a>
             </li>
 
             <li
-              className="flex items-start justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
+              className="flex justify-start gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -258,7 +258,7 @@ function Footer() {
                 />
               </svg>
 
-              <address className="-mt-0.5 flex-1 not-italic text-gray-700">
+              <address className="-mt-0.5 not-italic text-gray-700">
                 213 Lane, London, United Kingdom
               </address>
             </li>

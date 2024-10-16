@@ -18,16 +18,16 @@ function Feature () {
 
           <div className='bg-white grid grid-cols-1 md:grid-cols-2 gap-6 gap-y-10 lg:grid-cols-3 sm:mb-12'>
             {/**** Card 1 ****/}
-            <div className='mx-auto w-[350px] h-[435px] border border-gray-200 rounded-xl bg-gray-100 p-6 hover:shadow-xl cursor-pointer hover:transform hover:scale-105 transition duration-300 ease-in-out'>
+            <div className='mx-auto w-[300px] h-[400px] md:w-[350px] lg:w-[350px] md:h-[435px] lg:h-[435px] p-4 md:p-6 lg:p-6 border border-gray-200 rounded-xl bg-gray-100 hover:shadow-xl cursor-pointer hover:transform hover:scale-105 transition duration-300 ease-in-out'>
                 <Image 
-                className='m-auto pt-8' 
+                className='m-auto pt-4 md:pt-8 lg:pt-8' 
                 src={assets.cardImg1}
                 alt=''
                 width={68}
                 height={50}
                 />
                 
-                <h2 className='text-blue-600 text-xl sm:text-2xl font-bold text-center mt-12'
+                <h2 className='text-blue-600 text-xl sm:text-2xl font-bold text-center mt-10 md:mt-12 lg:mt-12'
                 >
                     Individuals and Freelancers
                 </h2>
@@ -41,16 +41,16 @@ function Feature () {
             </div>
 
             {/**** Card 2 ****/}
-            <div className='mx-auto w-[350px] h-[435px] border border-gray-200 rounded-xl bg-gray-100 p-6 hover:shadow-xl cursor-pointer hover:transform hover:scale-105 transition duration-300 ease-in-out'>
+            <div className='mx-auto w-[300px] h-[400px] md:w-[350px] lg:w-[350px] md:h-[435px] lg:h-[435px] p-4 md:p-6 lg:p-6 border border-gray-200 rounded-xl bg-gray-100 hover:shadow-xl cursor-pointer hover:transform hover:scale-105 transition duration-300 ease-in-out'>
                 <Image 
-                className='m-auto pt-8'
+                className='m-auto pt-4 md:pt-8 lg:pt-8'
                 src={assets.teams}
                 alt=''
                 width={68}
                 height={50}
                 />
                 
-                <h2 className='text-blue-600 text-xl sm:text-2xl font-bold text-center mt-12'
+                <h2 className='text-blue-600 text-xl sm:text-2xl font-bold text-center mt-10 md:mt-12 lg:mt-12'
                 >
                     Small Businesses and Teams
                 </h2>
@@ -64,16 +64,16 @@ function Feature () {
             </div>
 
             {/**** Card 3 ****/}
-            <div className='mx-auto w-[350px] h-[435px] border border-gray-200 rounded-xl bg-gray-100 p-6 hover:shadow-xl cursor-pointer hover:transform hover:scale-105 transition duration-300 ease-in-out'>
+            <div className='mx-auto w-[300px] h-[400px] md:w-[350px] lg:w-[350px] md:h-[435px] lg:h-[435px] p-4 md:p-6 lg:p-6 border border-gray-200 rounded-xl bg-gray-100 hover:shadow-xl cursor-pointer hover:transform hover:scale-105 transition duration-300 ease-in-out'>
                 <Image 
-                className='m-auto pt-8'
+                className='m-auto pt-4 md:pt-8 lg:pt-8'
                 src={assets.professional}
                 alt=''
                 width={68}
                 height={50}
                 />
                 
-                <h2 className='text-blue-600 text-xl sm:text-2xl font-bold text-center mt-12'
+                <h2 className='text-blue-600 text-xl sm:text-2xl font-bold text-center mt-10 md:mt-12 lg:mt-12'
                 >
                     Creative Professionals
                 </h2>
