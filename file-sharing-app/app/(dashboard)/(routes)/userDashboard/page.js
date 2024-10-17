@@ -48,14 +48,19 @@ function UserDashboard() {
       await deleteDoc(fileRef); // Delete the file from Firestore
       setUserFiles(userFiles.filter(file => file.id !== fileId)); // Update the state to remove the deleted file
       console.log(`File with ID ${fileId} deleted successfully.`); 
-      toast.success('file deleted successfully');
+      toast.success('file deleted successfully', { className: 'sonner-toast sonner-toast-success' });
     } catch (error) {
       console.error("Error deleting file:", error); // Handle any errors
     }
+  }; 
+ 
+  const CopyToast = () => {
+    toast.success('file Url copied successfully', { className: 'sonner-toast sonner-toast-success' });
   };
 
+
   if (loading) {
-    return <div className="p-5 text-center">Loading your files...</div>;
+    return <div className="p-5 text-center text-primary text-3xl">Loading your files...</div>;
   }
 
   return (
@@ -99,7 +104,7 @@ function UserDashboard() {
                   <td className="py-2 px-4 flex justify-center gap-2">
                     {/* Copy Link */}
                     <button
-                      onClick={() => navigator.clipboard.writeText(file.fileUrl)}
+                      onClick={() => navigator.clipboard.writeText(file.fileUrl) && CopyToast()}
                       className="bg-purple-500 text-white py-1 px-2 rounded-lg hover:bg-purple-600 transition duration-300 flex items-center"
                     >
                       <Copy className="w-4 h-4 mr-1" />

@@ -4,7 +4,8 @@ import { getFirestore, collection, getDocs, deleteDoc, doc } from 'firebase/fire
 import app from './../../../_utils/filrebaseConfig';
 import Link from 'next/link';
 import { Copy, Trash2, Eye } from 'lucide-react'; 
-import PasswordModal from './_components/PasswordModal'; // Import PasswordModal
+import PasswordModal from './_components/PasswordModal'; // Import PasswordModal 
+import {toast} from 'sonner';
 
 function Upload() {
   const db = getFirestore(app);
@@ -28,8 +29,13 @@ function Upload() {
   const handleDelete = async (fileId) => {
     const fileRef = doc(db, 'uploadedFile', fileId);
     await deleteDoc(fileRef);
-    setFiles(files.filter(file => file.id !== fileId)); // Update UI after delete
-  };
+    setFiles(files.filter(file => file.id !== fileId)); // Update UI after delete 
+    toast.success('file deleted successfully', { className: 'sonner-toast sonner-toast-success' });
+  }; 
+   
+  const CopyFileToast = () => {   
+    toast.success('file Url copied successfully', { className: 'sonner-toast sonner-toast-success' });
+  }
 
   const handlePasswordSubmit = () => {
     setIsAuthenticated(true); // Grant access on correct password
@@ -90,7 +96,7 @@ function Upload() {
                   <td className="py-2 px-4 flex justify-center gap-2">
                     {/* Copy Link */}
                     <button
-                      onClick={() => navigator.clipboard.writeText(file.fileUrl)}
+                      onClick={() => navigator.clipboard.writeText(file.fileUrl) && CopyFileToast()}
                       className="bg-purple-500 text-white py-1 px-2 rounded-lg hover:bg-purple-600 transition duration-300 flex items-center"
                     >
                       <Copy className="w-4 h-4 mr-1" />
