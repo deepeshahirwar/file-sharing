@@ -2,21 +2,21 @@
 import React, { useState, useEffect } from 'react';
 import { getFirestore, collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import app from './../../../_utils/filrebaseConfig';
-import PasswordModal from './_components/PasswordModal'; // Import the PasswordModal component
 import Link from 'next/link';
-import { ArrowLeftSquare } from 'lucide-react';
+import { Copy, Trash2, Eye } from 'lucide-react'; 
+import PasswordModal from './_components/PasswordModal'; // Import PasswordModal
 
 function Upload() {
   const db = getFirestore(app);
   const [files, setFiles] = useState([]);
-  const [isAuthorized, setIsAuthorized] = useState(false);
-  const [showPasswordModal, setShowPasswordModal] = useState(true); // Initially show the modal
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // State for authentication
+  const [isModalOpen, setIsModalOpen] = useState(true); // Modal visibility state
 
   useEffect(() => {
-    if (isAuthorized) {
-      fetchFiles(); // Fetch files if the user is authorized
+    if (isAuthenticated) {
+      fetchFiles(); // Fetch files only if authenticated
     }
-  }, [isAuthorized]);
+  }, [isAuthenticated]);
 
   const fetchFiles = async () => {
     const filesCollection = collection(db, 'uploadedFile');
@@ -32,69 +32,100 @@ function Upload() {
   };
 
   const handlePasswordSubmit = () => {
-    setIsAuthorized(true); // Grant access after correct password
-    setShowPasswordModal(false); // Hide modal after successful submission
+    setIsAuthenticated(true); // Grant access on correct password
+    setIsModalOpen(false); // Close the modal
   };
 
   const handleCloseModal = () => {
-    setShowPasswordModal(false); // Close the modal when the X icon is clicked
+    setIsModalOpen(false); // Close the modal if user cancels
   };
 
   return (
     <div className="p-5 bg-gray-100 min-h-screen">
-      {showPasswordModal && (
-        <PasswordModal onPasswordSubmit={handlePasswordSubmit} onClose={handleCloseModal} />
+      {isModalOpen && !isAuthenticated && (
+        <PasswordModal 
+          onPasswordSubmit={handlePasswordSubmit} 
+          onClose={handleCloseModal} 
+        />
       )}
+      
+      {/* Dashboard Statistics */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8 text-center">
+        <div className="bg-white p-4 rounded-lg shadow-md">
+          <h2 className="text-lg font-bold text-black">4GB</h2>
+          <p className="text-gray-500">Usage</p>
+        </div>
+        <div className="bg-white p-4 rounded-lg shadow-md">
+          <h2 className="text-lg font-bold text-black">6GB</h2>
+          <p className="text-gray-500">Free Space</p>
+        </div>
+        <div className="bg-white p-4 rounded-lg shadow-md">
+          <h2 className="text-lg font-bold text-black">192 Files</h2>
+          <p className="text-gray-500">Owned Files</p>
+        </div>
+        <div className="bg-white p-4 rounded-lg shadow-md">
+          <h2 className="text-lg font-bold  text-black">82,991</h2>
+          <p className="text-gray-500">Downloads</p>
+        </div>
+      </div>
 
-      {!showPasswordModal && isAuthorized && (
-        <>
-          <Link
-            className="text-blue-500 hover:text-blue-600 transition duration-300 flex items-center gap-2"
-            href="/upload"
-          >
-            <ArrowLeftSquare className="text-3xl text-blue-500 hover:text-blue-600 transition duration-300" />
-            Go to Upload
-          </Link>
-          <h1 className="text-3xl font-bold mb-8 text-center text-primary">Uploaded Files</h1>
-
-          {files.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {files.map((file) => (
-                <div
-                  key={file.id}
-                  className="bg-white border border-gray-200 rounded-lg shadow-md p-5"
-                >
-                  <h2 className="text-xl font-semibold mb-3 text-black">
-                    File Name: {file.fileName}
-                  </h2>
-                  <p className="text-gray-600">File Size: {file.fileSize} bytes</p>
-                  <p className="text-gray-600">File Type: {file.fileType}</p>
-
-                  <div className="flex justify-between mt-4">
-                    {/* View File */}
-                    <Link
-                      className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300"
-                      href={`/file-preview/${file.id}`}
+      {/* Uploaded Files Table */}
+      <div className="bg-white shadow-md rounded-lg overflow-hidden">
+        <table className="min-w-full table-auto">
+          <thead>
+            <tr className="bg-gray-50">
+              <th className="py-2 px-4 text-left text-sm font-semibold text-gray-600">File Name</th>
+              <th className="py-2 px-4 text-left text-sm font-semibold text-gray-600">File Size</th>
+              <th className="py-2 px-4 text-left text-sm font-semibold text-gray-600">File Type</th>
+              <th className="py-2 px-4 text-center text-sm font-semibold text-gray-600">File Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {files.length > 0 ? (
+              files.map((file) => (
+                <tr key={file.id} className="border-b">
+                  <td className="py-2 px-4 text-gray-800 ">{file.fileName}</td>
+                  <td className="py-2 px-4 text-gray-800 ">{file.fileSize} bytes</td>
+                  <td className="py-2 px-4 text-gray-800 ">{file.fileType}</td>
+                  <td className="py-2 px-4 flex justify-center gap-2">
+                    {/* Copy Link */}
+                    <button
+                      onClick={() => navigator.clipboard.writeText(file.fileUrl)}
+                      className="bg-purple-500 text-white py-1 px-2 rounded-lg hover:bg-purple-600 transition duration-300 flex items-center"
                     >
-                      View File
+                      <Copy className="w-4 h-4 mr-1" />
+                      Copy Link
+                    </button>
+
+                    {/* View File */}
+                    <Link 
+                     className="bg-blue-500 text-white py-1 px-2 rounded-lg hover:bg-blue-600 transition duration-300 flex items-center"
+                    href={`/file-preview/${file.id}`} passHref>
+                     
+                        <Eye className="w-4 h-4 mr-1" />
+                        View
+                     
                     </Link>
 
                     {/* Delete File */}
                     <button
                       onClick={() => handleDelete(file.id)}
-                      className="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition duration-300"
+                      className="bg-red-500 text-white py-1 px-2 rounded-lg hover:bg-red-600 transition duration-300 flex items-center"
                     >
-                      Delete File
+                      <Trash2 className="w-4 h-4 mr-1" />
+                      Delete
                     </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <p className="text-center text-gray-500">No files found.</p>
-          )}
-        </>
-      )}
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="4" className="text-center py-4 text-gray-500">No files found.</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

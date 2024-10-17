@@ -38,9 +38,9 @@ function FilePreview({ params }) {
 
   return ( 
     <div className="p-5">  
-      <Link href="/files" className="text-primary flex items-center gap-3 hover:text-blue-700">
+      <Link href="/upload" className="text-primary flex items-center gap-3 hover:text-blue-700">
         <ArrowLeftSquare />
-        Go back to files
+        Go back to upload
       </Link>
       
       <div className="flex justify-between items-center mt-16 md:grid-cols-2"> 

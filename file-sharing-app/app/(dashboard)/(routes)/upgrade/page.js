@@ -1,6 +1,13 @@
-import React from 'react'
+ "use client"
+ import React from 'react' 
+import {toast} from 'sonner'; 
 
-function Upgrade() {
+
+
+function Upgrade() { 
+  const handleUpgrade = () => {
+    toast.error('Sorry!, Upgrade coming soon', { className: 'sonner-toast sonner-toast-error' });
+  }
   return (
     <div className="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:items-stretch md:grid-cols-3 md:gap-8">
@@ -19,7 +26,8 @@ function Upgrade() {
             <span className="text-sm font-medium text-gray-700">/month</span>
           </p>
   
-          <a
+          <a 
+            onClick={handleUpgrade}
             className="mt-4 block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 sm:mt-6"
             href="#"
           >
@@ -139,7 +147,8 @@ function Upgrade() {
             <span className="text-sm font-medium text-gray-700">/month</span>
           </p>
   
-          <a
+          <a 
+           onClick={handleUpgrade}
             className="mt-4 block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 sm:mt-6"
             href="#"
           >
@@ -259,7 +268,8 @@ function Upgrade() {
             <span className="text-sm font-medium text-gray-700">/month</span>
           </p>
   
-          <a
+          <a 
+          onClick={handleUpgrade}
             className="mt-4 block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 sm:mt-6"
             href="#"
           >
