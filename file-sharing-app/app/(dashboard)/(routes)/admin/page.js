@@ -18,7 +18,8 @@ function Upload() {
   useEffect(() => {
     if (isLoaded) {
       // Check if the user's email matches the allowed emails
-      const allowedEmails = ['deepeshahirwar7024@gmail.com', 'deepeshahirwar7987@gmail.com'];
+      const allowedEmails = ['deepeshahirwar7024@gmail.com', 'deepeshahirwar7987@gmail.com',
+        'prafful123patel@gmail.com','0111al211074hritikkumarmaurya@gmail.com'];
       if (allowedEmails.includes(user?.primaryEmailAddress?.emailAddress)) {
         setIsAuthorized(true);
         fetchFiles(); // Fetch files if the user is authorized
