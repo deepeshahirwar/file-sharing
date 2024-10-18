@@ -5,13 +5,17 @@ import app from './../../../_utils/filrebaseConfig';
 import { useUser } from '@clerk/nextjs'; // Assuming you're using Clerk for authentication
 import { Copy, Trash2, Eye } from 'lucide-react'; 
 import Link from 'next/link'; 
-import { toast } from 'sonner';
+import { toast } from 'sonner'; 
+import FileViewModal from '../files/_components/FileViewModal'; // Import FileViewModal
 
 function UserDashboard() {
   const db = getFirestore(app);
   const [userFiles, setUserFiles] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { user } = useUser(); // Get the logged-in user using useUser
+  const { user } = useUser(); // Get the logged-in user using useUser 
+  const [selectedFileUrl, setSelectedFileUrl] = useState(null); // State for the selected file URL
+
+  
 
   useEffect(() => {
     console.log("Current user:", user); // Log the user object
@@ -61,10 +65,21 @@ function UserDashboard() {
 
   if (loading) {
     return <div className="p-5 text-center text-primary text-3xl">Loading your files...</div>;
-  }
+  } 
+  const handleViewFile = (fileUrl) => {
+    setSelectedFileUrl(fileUrl); // Set the selected file URL to show in the modal
+  };
+
+  const handleCloseModal = () => {
+    setSelectedFileUrl(null); // Close the modal
+  };
+
 
   return (
-    <div className="p-5 bg-gray-100 min-h-screen">
+    <div className="p-5 bg-gray-100 min-h-screen"> 
+   
+   {selectedFileUrl && <FileViewModal fileUrl={selectedFileUrl} onClose={handleCloseModal} />}
+
       <h1 className="text-2xl font-bold text-black mb-6">Your Uploaded Files</h1>
 
       {/* Dashboard Statistics */}
@@ -81,7 +96,10 @@ function UserDashboard() {
           <h2 className="text-lg font-bold text-black">{userFiles.length} Files</h2>
           <p className="text-gray-500">Uploaded Files</p>
         </div>
-      </div>
+      </div> 
+
+      <h1 className="text-2xl font-bold text-black mb-6">Your Recent Uploaded Files</h1>
+
 
       {/* User's Uploaded Files Table */}
       <div className="bg-white shadow-md rounded-lg overflow-hidden">
@@ -99,7 +117,9 @@ function UserDashboard() {
               userFiles.map((file) => (
                 <tr key={file.id} className="border-b">
                   <td className="py-2 px-4 text-gray-800 ">{file.fileName}</td>
-                  <td className="py-2 px-4 text-gray-800 ">{file.fileSize} bytes</td>
+                  <td className="py-2 px-4 text-gray-800">
+                  {(file.fileSize / (1024 * 1024)).toFixed(2)} MB
+                    </td>
                   <td className="py-2 px-4 text-gray-800 ">{file.fileType}</td>
                   <td className="py-2 px-4 flex justify-center gap-2">
                     {/* Copy Link */}
@@ -112,22 +132,22 @@ function UserDashboard() {
                     </button>
 
                     {/* View File */}
-                    <Link 
+                    <button
+                      onClick={() => handleViewFile(file.fileUrl)} // Pass the file URL to the modal
                       className="bg-blue-500 text-white py-1 px-2 rounded-lg hover:bg-blue-600 transition duration-300 flex items-center"
-                      href={`/file-preview/${file.id}`} passHref
                     >
                       <Eye className="w-4 h-4 mr-1" />
                       View
-                    </Link>
+                    </button>
 
                     {/* Delete File */}
-                    <button
+                    {/* <button
                       onClick={() => handleDelete(file.id)}
                       className="bg-red-500 text-white py-1 px-2 rounded-lg hover:bg-red-600 transition duration-300 flex items-center"
                     >
                       <Trash2 className="w-4 h-4 mr-1" />
                       Delete
-                    </button>
+                    </button> */}
                   </td>
                 </tr>
               ))
