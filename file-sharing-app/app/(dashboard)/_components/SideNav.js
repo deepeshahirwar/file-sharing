@@ -29,6 +29,12 @@ function SideNav() {
             icon: Shield,
             path: "/upgrade"
         },
+        {
+            id: 5,
+            name: "Admin",
+            icon: User,
+            path: "/admin"
+        },
        
     ];
 
