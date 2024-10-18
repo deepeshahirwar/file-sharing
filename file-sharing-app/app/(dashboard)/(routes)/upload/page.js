@@ -8,9 +8,10 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/
 import app from "../../../_utils/filrebaseConfig";
 import { generateRandomString } from '../../../_utils/RandomString';
 import { useRouter } from 'next/navigation';
-import CompleteCheck from '../completeCheck/page';
+
 import { ArrowLeftSquare } from 'lucide-react';
-import Link from 'next/link';
+import Link from 'next/link'; 
+import { toast } from 'sonner';
 
 
 function Files() {   // Removed unnecessary `uploadBtnClickHandler` from props
@@ -101,8 +102,9 @@ function Files() {   // Removed unnecessary `uploadBtnClickHandler` from props
                   progress={progress}
                />
             </div>
-         ) : (
-            <CompleteCheck />  // Show completion component when upload is done
+         ) : (  
+           
+           toast.success('File uploaded successfully!', { className: 'sonner-toast sonner-toast-success' })
          )}
       </div> 
        </div>

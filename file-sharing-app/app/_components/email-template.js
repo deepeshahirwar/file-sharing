@@ -94,7 +94,8 @@
 
 //_components/email-template.js 
 // this template is working fine 
-import React from "react";
+import React from 'react';
+
 export const EmailTemplate = ({ response }) => {
   return (
     <div>
@@ -103,14 +104,16 @@ export const EmailTemplate = ({ response }) => {
 
       <div className="flex flex-col gap-2 mt-2 mb-2">  
         <h2>File Details:</h2>
-      <p>File Name: {response?.fileName}</p>
-      <p>File Size: {response?.fileSize}</p>
-      <p>File Type: {response?.fileType}</p> 
-      <p>File URL: {response?.shortUrl}</p> 
+        <p>File Name: {response?.fileName}</p>
+        <p>File Size: {response?.fileSize}</p>
+        <p>File Type: {response?.fileType}</p> 
+        <p>File URL: <a href={response?.shortUrl}>{response?.shortUrl}</a></p>
       </div>
 
-      <a href='google.com' className="text-blue-500 text-bold underline text-center text-2xl">
-        Download File</a>
+      <a href={response?.shortUrl} className="text-blue-500 text-bold underline text-center text-2xl">
+        Download File
+      </a>
     </div>
   );
 };
+

@@ -24,4 +24,39 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+} 
+
+/* Positioning the toast to the top-right */
+#sonner-portal {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999; /* Ensure it's on top of other elements */
 }
+
+/* Custom styling for toast */
+.sonner-toast {
+  background-color: #333;
+  color: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif; 
+  font-size: 20px;
+}
+
+/* Custom success toast */
+.sonner-toast.sonner-toast-success {
+  background-color: #28a745; 
+  width: 300px; 
+  height: 60px; 
+   
+}
+
+/* Custom error toast */
+.sonner-toast.sonner-toast-error {
+  background-color: #dc3545;
+  width: 300px; 
+  height: 60px;
+}
+

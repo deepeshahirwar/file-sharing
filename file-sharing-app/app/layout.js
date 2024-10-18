@@ -2,7 +2,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "./_components/Header";
 import {Outer} from 'next/font/google' 
-import { ClerkProvider , SignedIn, SignedOut, SignInButton, UserButton} from '@clerk/nextjs'
+import { ClerkProvider , SignedIn, SignedOut, SignInButton, UserButton} from '@clerk/nextjs' 
+import {Toaster} from 'sonner'
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +29,8 @@ export default function RootLayout({ children }) {
          
         
 
-        {children}
+        {children} 
+        <Toaster position="top-center"/>
       </body>
     </html>
     </ClerkProvider>
