@@ -34,6 +34,11 @@ function FileShareForm({ file, onPasswordSave }) {
     GlobalApi.SendEmail(data)
       .then(() => toast.success('Email sent successfully!'))
       .catch(() => toast.error('Error sending email.'));
+  }; 
+
+  const onCopyUrl = () => {
+    navigator.clipboard.writeText(`localhost:3000/f/${file?.fileId}`);
+    toast.success('File URL copied successfully',{ className: 'sonner-toast sonner-toast-success' });
   };
 
   return (
@@ -44,12 +49,12 @@ function FileShareForm({ file, onPasswordSave }) {
         </label>
         <input
           type="text"
-          value={file?.shortUrl || ""}
+          value={`localhost:3000/f/${file?.fileId}`}
           className="mt-1 w-full rounded-md border-gray-200 bg-white text-lg text-gray-700 shadow-sm h-8 p-1"
           readOnly
         />
         <Copy  
-        onClick={() => navigator.clipboard.writeText(file?.shortUrl)}
+        onClick={() => onCopyUrl()}
         className="text-white text-3xl cursor-pointer hover:text-primary" />
       </div>
 

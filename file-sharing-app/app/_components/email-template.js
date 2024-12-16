@@ -110,7 +110,10 @@ export const EmailTemplate = ({ response }) => {
         <p>File URL: <a href={response?.shortUrl}>{response?.shortUrl}</a></p>
       </div>
 
-      <a href={response?.shortUrl} className="text-blue-500 text-bold underline text-center text-2xl">
+      <a href={response?.shortUrl}
+       className="text-blue-500 
+       text-bold underline text-center mt-4
+        text-2xl border border-blue-500 rounded px-4 py-2">
         Download File
       </a>
     </div>

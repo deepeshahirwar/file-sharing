@@ -3,7 +3,7 @@ import { Shield, Upload, File,User } from 'lucide-react';
 import React, { useState } from 'react';
 import Link from 'next/link'; // Import Next.js Link component
 
-function SideNav() {
+function SideNav({closeSideNav}) {
     const menuList = [ 
         {
             id: 1,
@@ -29,6 +29,12 @@ function SideNav() {
             icon: Shield,
             path: "/upgrade"
         },
+        {
+            id: 5,
+            name: "Admin",
+            icon: User,
+            path: "/admin"
+        },
        
     ];
 
@@ -47,7 +53,10 @@ function SideNav() {
                             className={`flex gap-2 p-4 px-6 
                             hover:text-primary
                             ${index === active ? "bg-blue-50 text-primary" : null}`}
-                            onClick={() => setActive(index)}
+                            onClick={() => {
+                                setActive(index);
+                                closeSideNav();
+                            }}
                         >
                             <item.icon />
                             <h2>{item.name}</h2>
